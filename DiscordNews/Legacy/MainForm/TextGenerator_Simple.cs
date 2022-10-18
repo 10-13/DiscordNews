@@ -23,16 +23,16 @@ namespace DiscordNews.MainForm
             NewsBuilder = newsBuilder;
             InitializeComponent();
         }
-
+        private Mode __WorkMode = Mode.Text;
         public Mode WorkMode 
         {
             get
             {
-                return WorkMode;
+                return __WorkMode;
             }
             set
             {
-                WorkMode = value;
+                __WorkMode = value;
                 ElementWorkModeName = value.ToString() + " element:";
                 UseTextData = value == Mode.Text || value == Mode.List || value == Mode.Fixed;
             }
@@ -82,6 +82,11 @@ namespace DiscordNews.MainForm
             }
         }
         public string ImagePath { get; set; }
+
+        public void SetIndex(int index)
+        {
+            label2.Text = index.ToString();
+        }
 
         public DiscordMessageData GetDiscordMessage()
         {
@@ -144,5 +149,7 @@ namespace DiscordNews.MainForm
         public bool UseTextData { get; set; }
         public string ElementWorkModeName { get; set; }
         public string ImagePath { get; set; }
+        public void SetIndex(int index);
+        public DiscordMessageData GetDiscordMessage();
     }
 }

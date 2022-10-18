@@ -13,4 +13,9 @@
     <PackageReference Include="Discord.Net.Webhook" Version="3.8.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Legacy\MainForm\TextElement\" />
+    <Folder Include="MessageSettings\Main\" />
+  </ItemGroup>
+
 </Project>

@@ -11,7 +11,7 @@ namespace DiscordNews.MainForm
 {
     public class DiscordInterface
     {
-        private DiscordWebhookClient client;
+        public readonly DiscordWebhookClient client;
 
         public DiscordUserOptions Options { get; set; }
 
@@ -21,13 +21,17 @@ namespace DiscordNews.MainForm
             client = new DiscordWebhookClient(Url);
         }
 
-        public void Send(List<DiscordMessageData> data)
+        public void Send(Queue<DiscordMessageData> data)
         {
-            foreach(var msg in data)
+            while(data.Count > 0)
             {
+                var msg = data.Dequeue();
                 DiscordMessage m = new DiscordMessage(msg.Message, Options.Name, Options.ImageUrl);
                 DiscordFile f = GetFile(msg.PicturePath);
-                client.SendToDiscord(m, new DiscordFile[1] { f } );
+                if(f== null)
+                    client.SendToDiscord(m).Wait(500);
+                else
+                    client.SendToDiscord(m, new DiscordFile[1] { f } ).Wait(500);
             }
         }
         private static DiscordFile GetFile(string path)
