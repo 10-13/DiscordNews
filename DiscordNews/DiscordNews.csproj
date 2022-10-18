@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="discord-webhook-client" Version="3.1.0" />
     <PackageReference Include="Discord.Net.Webhook" Version="3.8.1" />
   </ItemGroup>
 
