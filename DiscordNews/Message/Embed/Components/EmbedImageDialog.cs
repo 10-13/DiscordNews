@@ -29,7 +29,7 @@ namespace DiscordNews.MessageSettings.Embed.ComponentDialogs
 
         private void button2_Click(object sender, EventArgs e)
         {
-            UrlImageSelector url = new UrlImageSelector();
+            UrlImageDialog url = new UrlImageDialog();
             if (url.ShowDialog() == DialogResult.OK)
                 textBox1.Text = url.URL;
         }

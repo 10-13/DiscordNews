@@ -1,6 +1,6 @@
-﻿namespace DiscordNews.MessageSettings.Embed.ComponentDialogs
+﻿namespace DiscordNews.Legacy.Tests
 {
-    partial class EmbedThumbnailDialog
+    partial class DefaultTest
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -37,39 +36,29 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(12, 12);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(398, 23);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.Text = "Image URL";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(416, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(71, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Select";
-            this.button2.UseVisualStyleBackColor = true;
+            this.textBox1.PlaceholderText = "Webhook URL";
+            this.textBox1.Size = new System.Drawing.Size(673, 23);
+            this.textBox1.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(429, 93);
+            this.button1.Location = new System.Drawing.Point(12, 41);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(58, 32);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "OK";
+            this.button1.Size = new System.Drawing.Size(673, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "SendMessage";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // EmbedThumbnailDialog
+            // DefaultTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 135);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(697, 74);
             this.Controls.Add(this.button1);
-            this.Name = "EmbedThumbnailDialog";
-            this.Text = "EmbedThumbnailDialog";
+            this.Controls.Add(this.textBox1);
+            this.Name = "DefaultTest";
+            this.Text = "DefaultTest";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -78,7 +67,6 @@
         #endregion
 
         private TextBox textBox1;
-        private Button button2;
         private Button button1;
     }
 }

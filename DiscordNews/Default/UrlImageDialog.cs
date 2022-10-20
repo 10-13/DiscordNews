@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace DiscordNews.Default
 {
-    public partial class UrlImageSelector : Form
+    public partial class UrlImageDialog : Form
     {
         public string URL { get; set; } = "";
 
-        public UrlImageSelector()
+        public UrlImageDialog()
         {
             InitializeComponent();
         }

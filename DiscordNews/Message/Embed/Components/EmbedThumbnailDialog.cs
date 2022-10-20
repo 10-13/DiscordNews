@@ -1,4 +1,5 @@
-﻿using JNogueira.Discord.Webhook.Client;
+﻿using DiscordNews.Default;
+using JNogueira.Discord.Webhook.Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,6 +25,13 @@ namespace DiscordNews.MessageSettings.Embed.ComponentDialogs
         {
             EmbedThumbnail = new DiscordMessageEmbedThumbnail(textBox1.Text);
             DialogResult = DialogResult.OK;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            UrlImageDialog f = new UrlImageDialog();
+            if (f.ShowDialog() == DialogResult.OK)
+                textBox1.Text = f.URL;
         }
     }
 }

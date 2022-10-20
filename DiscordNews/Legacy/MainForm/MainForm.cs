@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using DiscordNews.Message;
+using DiscordNews.MessageSettings.Embed;
 using JNogueira.Discord.Webhook.Client;
 
 namespace DiscordNews.MainForm
@@ -23,22 +24,11 @@ namespace DiscordNews.MainForm
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            var Msg = new DiscordMessage(
-                embeds: new DiscordMessageEmbed[1]
-                {
-                    new DiscordMessageEmbed(
-                        author: new DiscordMessageEmbedAuthor("WSKY NEWS",iconUrl: "https://media.discordapp.net/attachments/893583871147397182/1028203181173383218/jack-daniels-butylka-chernyy.jpg"),
-                        title: "Название новости",
-                        url: "https://media.discordapp.net/attachments/893583871147397182/1028203181173383218/jack-daniels-butylka-chernyy.jpg",
-                        description: "```\n\nТут вы читаете какое-то короткое описание новости\n\n```",
-                        image: new DiscordMessageEmbedImage("https://media.discordapp.net/attachments/893583871147397182/1028203181173383218/jack-daniels-butylka-chernyy.jpg"),
-                        fields: new DiscordMessageEmbedField[2] { new DiscordMessageEmbedField("Параграф 1.", "Краткая информация"), new DiscordMessageEmbedField("Параграф 2.", "Краткая информация") },
-                        footer: new DiscordMessageEmbedFooter("@by 10-13","https://media.discordapp.net/attachments/893583871147397182/1028203181173383218/jack-daniels-butylka-chernyy.jpg")
-                        )
-                }
-                ) ;
-            MessageBox.Show(Msg.Invalido.ToString());
-            Interface.client.SendToDiscord(Msg);
+            DiscordMessage msg = new DiscordMessage();
+            MessageDialog d = new MessageDialog();
+            if (d.ShowDialog() == DialogResult.OK)
+                msg = d.Message;
+            Interface.client.SendToDiscord(msg);
         }
 
         private void button1_Click(object sender, EventArgs e)

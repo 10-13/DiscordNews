@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <Folder Include="Legacy\MainForm\TextElement\" />
-    <Folder Include="MessageSettings\Main\" />
   </ItemGroup>
 
 </Project>
