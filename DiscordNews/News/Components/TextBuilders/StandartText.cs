@@ -29,5 +29,10 @@ namespace DiscordNews.News.Components.TextBuilders
                 return new DiscordMessage(textBox1.Text);
             }
         }
+
+        private void StandartText_Resize(object sender, EventArgs e)
+        {
+            textBox1.Width = this.Width - 6;
+        }
     }
 }

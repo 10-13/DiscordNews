@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace DiscordNews.News.Components.TextBuilders
 {
-    public partial class Small_titledimage : UserControl, IMessageBuilder
+    public partial class Small_titled_image : UserControl, IMessageBuilder
     {
         public DiscordMessageEmbedFooter EmbedFooter { get; set; } = null;
 
@@ -24,7 +24,7 @@ namespace DiscordNews.News.Components.TextBuilders
             }
         }
 
-        public Small_titledimage()
+        public Small_titled_image()
         {
             InitializeComponent();
         }

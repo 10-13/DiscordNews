@@ -87,6 +87,7 @@
             this.Controls.Add(this.radioButton1);
             this.Name = "StandartText";
             this.Size = new System.Drawing.Size(367, 262);
+            this.Resize += new System.EventHandler(this.StandartText_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();
 

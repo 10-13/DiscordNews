@@ -39,6 +39,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.button8 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -46,6 +47,7 @@
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 128);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(619, 273);
@@ -92,6 +94,7 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "set author footer";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -113,6 +116,7 @@
             this.button4.TabIndex = 6;
             this.button4.Text = "Add big titled image";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -123,6 +127,7 @@
             this.button5.TabIndex = 7;
             this.button5.Text = "Add small titled image";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -144,6 +149,7 @@
             this.button7.TabIndex = 9;
             this.button7.Text = "Add embed";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // textBox3
             // 
@@ -155,11 +161,23 @@
             this.textBox3.Size = new System.Drawing.Size(865, 23);
             this.textBox3.TabIndex = 10;
             // 
+            // button8
+            // 
+            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button8.Location = new System.Drawing.Point(637, 268);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(240, 23);
+            this.button8.TabIndex = 11;
+            this.button8.Text = "Update";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // NewsDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(889, 520);
+            this.Controls.Add(this.button8);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
@@ -173,6 +191,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "NewsDialog";
             this.Text = "NewsDialog";
+            this.Load += new System.EventHandler(this.NewsDialog_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,5 +210,6 @@
         private Button button6;
         private Button button7;
         private TextBox textBox3;
+        private Button button8;
     }
 }

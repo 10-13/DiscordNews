@@ -1,6 +1,6 @@
 ﻿namespace DiscordNews.News.Components.TextBuilders
 {
-    partial class Small_titledimage
+    partial class Small_titled_image
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -33,6 +33,8 @@
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Location = new System.Drawing.Point(3, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(397, 23);
@@ -41,12 +43,12 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Small_titledimage
+            // Small_titled_image
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.button1);
-            this.Name = "Small_titledimage";
+            this.Name = "Small_titled_image";
             this.Size = new System.Drawing.Size(403, 30);
             this.ResumeLayout(false);
 

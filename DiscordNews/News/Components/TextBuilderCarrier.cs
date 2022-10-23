@@ -45,6 +45,7 @@ namespace DiscordNews.News.Components
                 value.Width = this.Width - RLAnchror * 2;
                 this.Size = new Size(this.Width, UpperAnchor + DownAnchor + value.Height);
                 value.Location = new Point(RLAnchror, UpperAnchor);
+                value.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
             }
         }
 
@@ -73,6 +74,11 @@ namespace DiscordNews.News.Components
         private void button1_Click(object sender, EventArgs e)
         {
             _endpoint?.MoveUp(this);
+        }
+        public void UpdateControl()
+        {
+            if (Controls.Count > 4 && Controls[4] != null)
+                Controls[4].Width = this.Width - 6;
         }
     }
 

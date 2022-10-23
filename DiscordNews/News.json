@@ -1,0 +1,38 @@
+{
+	"Key": [
+		[
+			{
+				"Username": null,
+				"AvatarUrl": null,
+				"Content": null,
+				"Tts": false,
+				"Embeds": [
+					{
+						"Color": null,
+						"Author": null,
+						"Title": "title",
+						"Url": null,
+						"Description": "description",
+						"Fields": null,
+						"Thumbnail": null,
+						"Image": null,
+						"Footer": {
+							"Text": "10-13",
+							"IconUrl": "",
+							"Notificacoes": [],
+							"Mensagens": [],
+							"Invalido": false
+						},
+						"Notificacoes": [],
+						"Mensagens": [],
+						"Invalido": false
+					}
+				],
+				"Notificacoes": [],
+				"Mensagens": [],
+				"Invalido": false
+			}
+		]
+	],
+	"Value": [ "title" ]
+}
