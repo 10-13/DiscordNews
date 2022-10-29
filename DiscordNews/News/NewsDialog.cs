@@ -14,6 +14,7 @@ using DiscordNews.News.Components.TextBuilders;
 using DiscordNews.News.Components;
 using DiscordNews.Default;
 using DiscordNews.MessageSettings.Embed.ComponentDialogs;
+using V10_13News.News;
 
 namespace DiscordNews.News
 {
@@ -60,6 +61,29 @@ namespace DiscordNews.News
         public List<DiscordMessage> News { get; set; } = new List<DiscordMessage>();
         public string Title { get; set; } = "";
         public DiscordMessageEmbedFooter footer { get; set; } = null;
+
+        public NewsMain _News
+        {
+            get
+            {
+                var res = new NewsMain();
+                res.Title = textBox2.Text;
+                res.Description = textBox3.Text;
+                res.URL = textBox1.Text;
+                res.AuthorFooter = footer;
+                foreach (TextBuilderCarrier carrier in flowLayoutPanel1.Controls)
+                {
+                    if (carrier.Message != null)
+                        res.TextData.Add(carrier.Message);
+                }
+                return res;
+            }
+            set
+            {
+
+            }
+        }
+
         public NewsDialog()
         {
             InitializeComponent();

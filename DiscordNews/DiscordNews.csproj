@@ -17,4 +17,8 @@
     <Folder Include="Legacy\MainForm\TextElement\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\V10_13News\V10_13News.csproj" />
+  </ItemGroup>
+
 </Project>

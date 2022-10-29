@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscordNews", "DiscordNews\DiscordNews.csproj", "{1B58C88F-AED8-452E-B0F0-19F961F7D042}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscordNews", "DiscordNews\DiscordNews.csproj", "{1B58C88F-AED8-452E-B0F0-19F961F7D042}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "V10_13News", "V10_13News\V10_13News.csproj", "{2A45335A-7C30-436B-8A7B-4FDC84D66D10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{1B58C88F-AED8-452E-B0F0-19F961F7D042}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B58C88F-AED8-452E-B0F0-19F961F7D042}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B58C88F-AED8-452E-B0F0-19F961F7D042}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A45335A-7C30-436B-8A7B-4FDC84D66D10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A45335A-7C30-436B-8A7B-4FDC84D66D10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A45335A-7C30-436B-8A7B-4FDC84D66D10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A45335A-7C30-436B-8A7B-4FDC84D66D10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
