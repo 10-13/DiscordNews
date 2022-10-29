@@ -69,8 +69,8 @@ namespace DiscordNews.Default
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Not aliveble now");
-            
+            MessageBox.Show("Not aliveble now");
+            /*
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.CheckFileExists = true;
             if (ofd.ShowDialog() == DialogResult.OK)
@@ -90,19 +90,19 @@ namespace DiscordNews.Default
                 }
             listBox1.Items.Clear();
             foreach (string title in Titles)
-                listBox1.Items.Add(title);
+                listBox1.Items.Add(title);*/
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Not aliveble now");
-
+            MessageBox.Show("Not aliveble now");
+            /*
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.DefaultExt = ".txt";
             sfd.CheckPathExists = true;
             if (sfd.ShowDialog() == DialogResult.OK)
                 using (StreamWriter writer = new StreamWriter(new FileStream(sfd.FileName, FileMode.OpenOrCreate)))
-                    writer.WriteLine(JsonSerializer.Serialize(new KeyValuePair<List<List<DiscordMessage>>,List<string>>(News,Titles)));
+                    writer.WriteLine(JsonSerializer.Serialize(new KeyValuePair<List<List<DiscordMessage>>,List<string>>(News,Titles)));*/
         }
 
         private void button4_Click(object sender, EventArgs e)
