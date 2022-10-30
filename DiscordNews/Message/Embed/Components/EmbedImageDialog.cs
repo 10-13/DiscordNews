@@ -14,16 +14,29 @@ namespace DiscordNews.MessageSettings.Embed.ComponentDialogs
 {
     public partial class EmbedImageDialog : Form
     {
-        public DiscordMessageEmbedImage EmbedImage { get; set; }
+        public DiscordMessageEmbedImage EmbedImage 
+        {
+            get
+            {
+                return string.IsNullOrWhiteSpace(textBox1.Text) ? null : new DiscordMessageEmbedImage(textBox1.Text);
+            }
+            set
+            {
+                if (value == null)
+                    return;
+                textBox1.Text = value.Url;
 
-        public EmbedImageDialog()
+            }
+        }
+
+        public EmbedImageDialog(DiscordMessageEmbedImage data = null)
         {
             InitializeComponent();
+            EmbedImage = data;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            EmbedImage = new DiscordMessageEmbedImage(textBox1.Text);
             DialogResult = DialogResult.OK;
         }
 

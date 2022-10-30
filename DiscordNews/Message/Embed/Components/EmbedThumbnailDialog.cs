@@ -14,11 +14,26 @@ namespace DiscordNews.MessageSettings.Embed.ComponentDialogs
 {
     public partial class EmbedThumbnailDialog : Form
     {
-        public DiscordMessageEmbedThumbnail EmbedThumbnail { get; set; }
+        public DiscordMessageEmbedThumbnail EmbedThumbnail 
+        { 
+            get
+            {
+                return new DiscordMessageEmbedThumbnail(
+                    string.IsNullOrWhiteSpace(textBox1.Text) ? null : textBox1.Text
+                    );
+            }
+            set
+            {
+                if (value == null)
+                    return;
+                textBox1.Text = value.Url;
+            }
+        }
 
-        public EmbedThumbnailDialog()
+        public EmbedThumbnailDialog(DiscordMessageEmbedThumbnail data = null)
         {
             InitializeComponent();
+            EmbedThumbnail = data;
         }
 
         private void button1_Click(object sender, EventArgs e)

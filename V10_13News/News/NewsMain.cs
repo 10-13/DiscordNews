@@ -50,7 +50,7 @@ namespace V10_13News.News
             if (string.IsNullOrEmpty(Description))
                 Description = null;
             if (string.IsNullOrEmpty(Title))
-                Title = null;
+                Title = "No title";
             if (string.IsNullOrEmpty(URL))
                 URL = null;
             if (AuthorFooter != null)

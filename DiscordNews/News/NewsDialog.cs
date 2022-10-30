@@ -76,14 +76,19 @@ namespace DiscordNews.News
                     if (carrier.Message != null)
                         res.TextData.Add(carrier.Message);
                 }
+                res.Validate();
                 return res;
             }
             set
             {
+                if (value == null)
+                    return;
+                value.Validate();
                 textBox2.Text = value.Title;
                 textBox3.Text = value.Description;
                 textBox1.Text = value.URL;
                 footer = value.AuthorFooter;
+                if(value.TextData != null && value.TextDataModes != null)
                 for(int i = 0;i < value.TextData.Count; i++)
                 {
                     TextBuilderCarrier f = new TextBuilderCarrier();

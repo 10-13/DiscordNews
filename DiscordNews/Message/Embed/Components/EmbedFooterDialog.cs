@@ -14,11 +14,28 @@ namespace DiscordNews.MessageSettings.Embed.ComponentDialogs
 {
     public partial class EmbedFooterDialog : Form
     {
-        public DiscordMessageEmbedFooter EmbedFooter { get; set; }
+        public DiscordMessageEmbedFooter EmbedFooter 
+        {
+            get
+            {
+                return new DiscordMessageEmbedFooter(
+                    textBox2.Text,
+                    string.IsNullOrWhiteSpace(textBox1.Text) ? null : textBox1.Text
+                    );
+            }
+            set
+            {
+                if (value == null)
+                    return;
+                textBox2.Text = value.Text;
+                textBox1.Text = value.IconUrl;
+            }
+        }
 
-        public EmbedFooterDialog()
+        public EmbedFooterDialog(DiscordMessageEmbedFooter data = null)
         {
             InitializeComponent();
+            EmbedFooter = data;
         }
 
         private void button1_Click(object sender, EventArgs e)

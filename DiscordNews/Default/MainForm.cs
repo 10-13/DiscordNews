@@ -13,6 +13,7 @@ using Newtonsoft.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using V10_13News.News;
+using System.Security.Cryptography;
 
 namespace DiscordNews.Default
 {
@@ -67,40 +68,19 @@ namespace DiscordNews.Default
 
         private void button3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Not aliveble now");
-            /*
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.CheckFileExists = true;
             if (ofd.ShowDialog() == DialogResult.OK)
-                using (StreamReader reader = new StreamReader(new FileStream(ofd.FileName, FileMode.Open)))
-                {
-                    
-
-                    var temp = JsonConverter
-                    Titles = new List<string>();
-                    Titles.AddRange(temp.Value);
-                    News = new List<List<DiscordMessage>>();
-                    foreach (DiscordMessage[] f in temp.Key)
-                    {
-                        News.Add(new List<DiscordMessage>());
-                        News[News.Count - 1].AddRange(f);
-                    }
-                }
-            listBox1.Items.Clear();
-            foreach (string title in Titles)
-                listBox1.Items.Add(title);*/
+                News = JsonConvert.DeserializeObject<List<NewsMain>>(File.ReadAllText(ofd.FileName));
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Not aliveble now");
-            /*
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.DefaultExt = ".txt";
             sfd.CheckPathExists = true;
             if (sfd.ShowDialog() == DialogResult.OK)
-                using (StreamWriter writer = new StreamWriter(new FileStream(sfd.FileName, FileMode.OpenOrCreate)))
-                    writer.WriteLine(JsonSerializer.Serialize(new KeyValuePair<List<List<DiscordMessage>>,List<string>>(News,Titles)));*/
+                File.WriteAllText(sfd.FileName, JsonConvert.SerializeObject(News));
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -114,6 +94,23 @@ namespace DiscordNews.Default
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             selector.SaveDatae("Webhooks.txt");
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_DoubleClick(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex == -1)
+                return;
+            NewsDialog f = new NewsDialog(News[listBox1.SelectedIndex]);
+            if (f.ShowDialog() == DialogResult.OK)
+            {
+                News[listBox1.SelectedIndex] = f.News;
+                listBox1.Items[listBox1.SelectedIndex] = f.News.Title;
+            }
         }
     }
 }
