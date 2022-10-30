@@ -17,9 +17,11 @@ namespace DiscordNews.News.Components.TextBuilders
     {
         public DiscordMessageEmbed MessageEmbed { get; set; } = null;
 
-        public EmbedEditor()
+        public EmbedEditor(DiscordMessage data = null)
         {
             InitializeComponent();
+            if (data != null && data.Embeds != null && data.Embeds.Length > 0 && data.Embeds[0] != null)
+                MessageEmbed = data.Embeds[0];
         }
 
         public DiscordMessage Message

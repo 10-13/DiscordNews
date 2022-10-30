@@ -24,9 +24,11 @@ namespace DiscordNews.News.Components.TextBuilders
             }
         }
 
-        public Small_titled_image()
+        public Small_titled_image(DiscordMessage data = null)
         {
             InitializeComponent();
+            if (data != null && data.Embeds != null && data.Embeds.Length > 0 && data.Embeds[0] != null)
+                EmbedFooter = data.Embeds[0].Footer;
         }
 
         private void button1_Click(object sender, EventArgs e)

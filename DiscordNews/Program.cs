@@ -1,3 +1,8 @@
+using V10_13News.News;
+using System.IO;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json;
+
 namespace DiscordNews
 {
     internal static class Program

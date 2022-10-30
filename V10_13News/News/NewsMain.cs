@@ -4,6 +4,16 @@ using JNogueira.Discord.Webhook.Client;
 
 namespace V10_13News.News
 {
+    public enum DataMode
+    {
+        FooterImage,
+        TitledImage,
+        LinkedFooterImage,
+        Text,
+        FullMessage,
+        Embed
+    }
+
     public class NewsMain
     {
         [JsonProperty("title")]
@@ -20,6 +30,9 @@ namespace V10_13News.News
 
         [JsonProperty("newsTexts")]
         public List<DiscordMessage> TextData { get; set; } = new List<DiscordMessage>();
+
+        [JsonProperty("dataModes")]
+        public List<DataMode> TextDataModes { get; set; } = new List<DataMode>();
 
         [JsonProperty("color")]
         public int? Color { get; set; } = null;
@@ -66,6 +79,21 @@ namespace V10_13News.News
             client.SendToDiscord(msg);
             foreach (var item in TextData)
                 client.SendToDiscord(item);
+        }
+
+        public void SetColor(int r,int g,int b)
+        {
+            Color = r + g * 256 + b * 256 * 256;
+        }
+        public void AddTextData(DataMode mode,DiscordMessage message)
+        {
+            TextData.Add(message);
+            TextDataModes.Add(mode);
+        }
+        public void RemoveTextData(int index)
+        {
+            TextData.RemoveAt(index);
+            TextDataModes.RemoveAt(index);
         }
     }
 }

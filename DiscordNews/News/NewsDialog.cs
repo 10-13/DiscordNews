@@ -58,11 +58,11 @@ namespace DiscordNews.News
         }
         //===============================================================
 
-        public List<DiscordMessage> News { get; set; } = new List<DiscordMessage>();
-        public string Title { get; set; } = "";
+        //public List<DiscordMessage> News { get; set; } = new List<DiscordMessage>();
+        //public string Title { get; set; } = "";
         public DiscordMessageEmbedFooter footer { get; set; } = null;
 
-        public NewsMain _News
+        public NewsMain News
         {
             get
             {
@@ -80,13 +80,24 @@ namespace DiscordNews.News
             }
             set
             {
-
+                textBox2.Text = value.Title;
+                textBox3.Text = value.Description;
+                textBox1.Text = value.URL;
+                footer = value.AuthorFooter;
+                for(int i = 0;i < value.TextData.Count; i++)
+                {
+                    TextBuilderCarrier f = new TextBuilderCarrier();
+                    f.EditControl = BuilderFactory.CreateBuilder(value.TextDataModes[i], value.TextData[i]);
+                    flowLayoutPanel1.Controls.Add(f);
+                    UpdateFlow();
+                }
             }
         }
 
-        public NewsDialog()
+        public NewsDialog(NewsMain data = null)
         {
             InitializeComponent();
+            News = data;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -106,23 +117,7 @@ namespace DiscordNews.News
 
         private void button6_Click(object sender, EventArgs e)
         {
-            News.Add(new DiscordMessage(
-                embeds: new DiscordMessageEmbed[]
-                {
-                    new DiscordMessageEmbed(
-                        title: textBox2.Text,
-                        description: textBox3.Text,
-                        image: string.IsNullOrEmpty(textBox1.Text) ? null : new DiscordMessageEmbedImage(textBox1.Text),
-                        footer: footer
-                        )
-                }
-                ));
-            foreach(TextBuilderCarrier carrier in flowLayoutPanel1.Controls)
-            {
-                if (carrier.Message != null)
-                    News.Add(carrier.Message);
-            }
-            Title = textBox2.Text;
+            
             DialogResult = DialogResult.OK;
         }
 

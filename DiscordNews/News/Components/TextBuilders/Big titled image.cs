@@ -16,9 +16,15 @@ namespace DiscordNews.News.Components.TextBuilders
     {
         public DiscordMessageEmbedImage Image { get; set; }
 
-        public Big_titled_image()
+        public Big_titled_image(DiscordMessage data = null)
         {
             InitializeComponent();
+            if (data != null && data.Embeds != null && data.Embeds.Length > 0 && data.Embeds[0] != null)
+            {
+                if (data.Embeds[0].Title != null)
+                    textBox1.Text = data.Embeds[0].Title;
+                Image = data.Embeds[0].Image;
+            }
         }
 
         public DiscordMessage Message

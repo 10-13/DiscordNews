@@ -12,14 +12,14 @@ using System.Text;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using V10_13News.News;
 
 namespace DiscordNews.Default
 {
     public partial class MainForm : Form
     {
         private ClientSelector selector;
-        private List<List<DiscordMessage>> News = new List<List<DiscordMessage>>();
-        private List<string> Titles = new List<string>();
+        private List<NewsMain> News = new List<NewsMain>();
 
         public MainForm()
         {
@@ -43,8 +43,7 @@ namespace DiscordNews.Default
             if (f.ShowDialog() == DialogResult.OK)
             {
                 News.Add(f.News);
-                listBox1.Items.Add(f.Title);
-                Titles.Add(f.Title);
+                listBox1.Items.Add(f.News.Title);
             }
         }
 
@@ -63,7 +62,6 @@ namespace DiscordNews.Default
             if (listBox1.SelectedIndex == -1)
                 return;
             News.RemoveAt(listBox1.SelectedIndex);
-            Titles.RemoveAt(listBox1.SelectedIndex);
             listBox1.Items.RemoveAt(listBox1.SelectedIndex);
         }
 
@@ -110,8 +108,7 @@ namespace DiscordNews.Default
             if (selector.SelectedClient == null || listBox1.SelectedIndex == -1)
                 return;
             var client = selector.SelectedClient;
-            foreach (var msg in News[listBox1.SelectedIndex])
-                client.SendToDiscord(msg);
+            News[listBox1.SelectedIndex].SendToClient(client);
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
