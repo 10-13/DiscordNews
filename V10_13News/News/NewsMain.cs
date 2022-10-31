@@ -22,7 +22,7 @@ namespace V10_13News.News
         [JsonProperty("description")]
         public string Description { get; set; } = null;
 
-        [JsonProperty("titleURL")]
+        [JsonProperty("imageURL")]
         public string URL { get; set; } = null;
 
         [JsonProperty("author")]
@@ -64,21 +64,26 @@ namespace V10_13News.News
         }
         public void SendToClient(in DiscordWebhookClient client)
         {
+            DiscordMessageEmbedImage f = new DiscordMessageEmbedImage(URL);
             var msg = new DiscordMessage(
                 embeds: new DiscordMessageEmbed[]
                 {
                     new DiscordMessageEmbed(
                         title: Title,
                         description: Description,
-                        url: URL,
+                        image: f.Invalido ? null : f,
                         color: Color,
+                        footer: new DiscordMessageEmbedFooter("by @" + AuthorFooter.Text,AuthorFooter.IconUrl),
                         author: PreDescription
                         )
                 }
                 );
             client.SendToDiscord(msg);
             foreach (var item in TextData)
+            {
+                Thread.Sleep(1000);
                 client.SendToDiscord(item);
+            }
         }
 
         public void SetColor(int r,int g,int b)

@@ -71,7 +71,15 @@ namespace DiscordNews.Default
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.CheckFileExists = true;
             if (ofd.ShowDialog() == DialogResult.OK)
+            {
                 News = JsonConvert.DeserializeObject<List<NewsMain>>(File.ReadAllText(ofd.FileName));
+                listBox1.Items.Clear();
+                foreach(NewsMain f in News)
+                {
+                    f.Validate();
+                    listBox1.Items.Add(f.Title);
+                }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

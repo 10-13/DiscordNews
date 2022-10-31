@@ -39,7 +39,7 @@
             // 
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(776, 387);
+            this.pictureBox1.Size = new System.Drawing.Size(614, 387);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -72,7 +72,7 @@
             this.textBox1.Size = new System.Drawing.Size(614, 23);
             this.textBox1.TabIndex = 3;
             // 
-            // UrlImageSelector
+            // UrlImageDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -81,8 +81,9 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "UrlImageSelector";
+            this.Name = "UrlImageDialog";
             this.Text = "UrlImageSelector";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UrlImageDialog_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

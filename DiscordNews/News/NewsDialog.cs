@@ -74,7 +74,13 @@ namespace DiscordNews.News
                 foreach (TextBuilderCarrier carrier in flowLayoutPanel1.Controls)
                 {
                     if (carrier.Message != null)
-                        res.TextData.Add(carrier.Message);
+                    {
+                        if(BuilderFactory.TryParseBuilder(carrier.EditControl,out DataMode? mode,out DiscordMessage msg))
+                        {
+                            res.TextData.Add(msg);
+                            res.TextDataModes.Add(mode.Value);
+                        }
+                    }
                 }
                 res.Validate();
                 return res;
@@ -91,7 +97,7 @@ namespace DiscordNews.News
                 if(value.TextData != null && value.TextDataModes != null)
                 for(int i = 0;i < value.TextData.Count; i++)
                 {
-                    TextBuilderCarrier f = new TextBuilderCarrier();
+                    TextBuilderCarrier f = new TextBuilderCarrier(this);
                     f.EditControl = BuilderFactory.CreateBuilder(value.TextDataModes[i], value.TextData[i]);
                     flowLayoutPanel1.Controls.Add(f);
                     UpdateFlow();
@@ -162,9 +168,9 @@ namespace DiscordNews.News
 
         private void button2_Click(object sender, EventArgs e)
         {
-            EmbedFooterDialog footer = new EmbedFooterDialog();
-            if (footer.ShowDialog() == DialogResult.OK)
-                this.footer = footer.EmbedFooter;
+            EmbedFooterDialog f = new EmbedFooterDialog(footer);
+            if (f.ShowDialog() == DialogResult.OK)
+                this.footer = f.EmbedFooter;
         }
     }
 }

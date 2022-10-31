@@ -39,13 +39,19 @@ namespace DiscordNews.News.Components
         {
             set
             {
-                if (Controls.Count > 4)
-                    Controls.RemoveAt(4);
+                if (Controls.Count > 3)
+                    Controls.RemoveAt(3);
                 Controls.Add(value);
                 value.Width = this.Width - RLAnchror * 2;
                 this.Size = new Size(this.Width, UpperAnchor + DownAnchor + value.Height);
                 value.Location = new Point(RLAnchror, UpperAnchor);
                 value.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
+            }
+            get
+            {
+                if (Controls.Count < 4)
+                    return null;
+                return Controls[3];
             }
         }
 
@@ -53,11 +59,11 @@ namespace DiscordNews.News.Components
         { 
             get
             {
-                if(Controls.Count != 5)
+                if(Controls.Count != 4)
                     return null;
-                if ((Controls[4] == null) || !(Controls[4] is IMessageBuilder))
+                if ((Controls[3] == null) || !(Controls[3] is IMessageBuilder))
                     return null;
-                return (Controls[4] as IMessageBuilder)?.Message;
+                return (Controls[3] as IMessageBuilder)?.Message;
             }
         }
 
