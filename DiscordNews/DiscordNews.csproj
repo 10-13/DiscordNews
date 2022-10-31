@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\V10_13EveIndustry\V10_13EveIndustry.csproj" />
     <ProjectReference Include="..\V10_13News\V10_13News.csproj" />
   </ItemGroup>
 
