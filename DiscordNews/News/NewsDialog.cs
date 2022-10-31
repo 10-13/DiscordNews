@@ -123,7 +123,7 @@ namespace DiscordNews.News
         {
             UrlImageDialog url = new UrlImageDialog();
             if (url.ShowDialog() == DialogResult.OK)
-                textBox3.Text = url.URL;
+                textBox1.Text = url.URL;
         }
 
         private void button6_Click(object sender, EventArgs e)
