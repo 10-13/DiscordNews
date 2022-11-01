@@ -73,11 +73,11 @@ namespace V10_13News.News
                         description: Description,
                         image: f.Invalido ? null : f,
                         color: Color,
-                        footer: new DiscordMessageEmbedFooter("by @" + AuthorFooter.Text,AuthorFooter.IconUrl),
+                        footer: AuthorFooter == null ? new DiscordMessageEmbedFooter("by @Incognito") : new DiscordMessageEmbedFooter("by @" + AuthorFooter.Text,AuthorFooter.IconUrl),
                         author: PreDescription
                         )
                 }
-                );
+                ) ;
             client.SendToDiscord(msg);
             foreach (var item in TextData)
             {
@@ -88,7 +88,7 @@ namespace V10_13News.News
 
         public void SetColor(int r,int g,int b)
         {
-            Color = r + g * 256 + b * 256 * 256;
+            Color = b + g * 256 + r * 256 * 256;
         }
         public void AddTextData(DataMode mode,DiscordMessage message)
         {

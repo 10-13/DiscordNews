@@ -37,7 +37,7 @@ namespace DiscordNews.News.Components.TextBuilders
 
         private void button1_Click(object sender, EventArgs e)
         {
-            EmbedImageDialog f = new EmbedImageDialog();
+            EmbedImageDialog f = new EmbedImageDialog(Image);
             if (f.ShowDialog() == DialogResult.OK)
                 Image = f.EmbedImage;
         }

@@ -34,7 +34,7 @@ namespace DiscordNews.News.Components.TextBuilders
 
         private void button1_Click(object sender, EventArgs e)
         {
-            EmbedDialog f = new EmbedDialog();
+            EmbedDialog f = new EmbedDialog(MessageEmbed);
             if (f.ShowDialog() == DialogResult.OK)
                 MessageEmbed = f.Embed;
         }

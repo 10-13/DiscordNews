@@ -47,7 +47,7 @@ namespace DiscordNews.MessageSettings.Embed
                 textBox2.Text = value.Description;
                 textBox3.Text = value.Url;
                 if (value.Color != null)
-                    EmbedColor = Color.FromArgb(value.Color.Value % 256, value.Color.Value / 256 % 256, value.Color.Value / 256 / 256 % 256);
+                    EmbedColor = Color.FromArgb(value.Color.Value / 256 / 256 % 256, value.Color.Value / 256 % 256, value.Color.Value % 256);
                 EmbedAuthor = value.Author;
                 EmbedFooter = value.Footer;
                 EmbedImage = value.Image;
@@ -77,6 +77,8 @@ namespace DiscordNews.MessageSettings.Embed
         private void button1_Click(object sender, EventArgs e)
         {
             ColorDialog clr = new ColorDialog();
+            if (EmbedColor != null)
+                clr.Color = EmbedColor.Value;
             if (clr.ShowDialog() == DialogResult.OK)
                 EmbedColor = clr.Color;
         }

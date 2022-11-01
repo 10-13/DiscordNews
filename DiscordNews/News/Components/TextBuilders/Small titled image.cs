@@ -33,7 +33,7 @@ namespace DiscordNews.News.Components.TextBuilders
 
         private void button1_Click(object sender, EventArgs e)
         {
-            EmbedFooterDialog f = new EmbedFooterDialog();
+            EmbedFooterDialog f = new EmbedFooterDialog(EmbedFooter);
             if (f.ShowDialog() == DialogResult.OK)
                 EmbedFooter = f.EmbedFooter;
         }
